@@ -21,7 +21,8 @@
 </template>
 
 <script>
-import { faker } from '@faker-js/faker'
+import { fakerRU as faker } from '@faker-js/faker'
+//import { faker } from '@faker-js/faker'
 import FakerExample from './FakerExample.vue'
 
 export default {
