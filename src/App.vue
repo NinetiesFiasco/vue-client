@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>Big problem</h1>
+    <h1>{{ title }}</h1>
   </header>
   <div class="flexer">
     <nav>
@@ -19,6 +19,11 @@ export default {
   name: 'App',
   components: {
     Menu
+  },
+  computed: {
+    title() {
+      return `Big problem ${process.env.NODE_ENV}`
+    }
   }
 }
 </script>

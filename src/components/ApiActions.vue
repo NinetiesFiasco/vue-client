@@ -67,8 +67,7 @@
 </template>
 
 <script>
-
-const API = 'http://localhost:3500/api'
+import api from '@/api'
 
 export default {
   name: 'MyTab',
@@ -87,30 +86,30 @@ export default {
     }
   },
   methods: {
-    callExpressOne() {
-      this.fetchAuth(`${API}/auth`, 'initial')  
+    async callExpressOne() {
+      const data = await api.main.initial()
+      this.answers.express1.initial = data.res
     },
-    callExpressOneAxios() {
-      this.fetchAuth(`${API}/auth/axios`, 'axios')
+    async callExpressOneAxios() {
+      const data = await api.main.axios()
+      this.answers.express1.axios = data.res
     },
     async callExpressOneRabbit() {
-      this.fetchAuth(`${API}/auth/rabbit`, 'rabbit')
+      const data = await api.main.rabbit()
+      this.answers.express1.rabbit = data.res
     },
     async callExpressOneMongo() {
-      this.fetchAuth(`${API}/auth/mongo`, 'mongo')
+      const data = await api.main.mongo()
+      this.answers.express1.mongo = data.res
     },
     async callExpressOneMail() {
-      this.fetchAuth(`${API}/auth/mail`, 'mail')
-    },
-    async fetchAuth(url, resField) {
-      const response = await fetch(url)
-      this.answers.express1[resField] = await response.text()
+      const data = await api.main.mail()
+      this.answers.express1.mail = data.res
     },
     async callExpressTwo() {
-      const response = await fetch(`${API}/test`)
-      this.answers.express2 = await response.text()
+      const data = await api.test.initial()
+      this.answers.express2 = data.res
     }
-    
   }
 }
 </script>
