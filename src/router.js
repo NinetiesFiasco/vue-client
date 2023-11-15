@@ -3,7 +3,7 @@ import Main from './components/Main.vue'
 import Info from './components/Info.vue'
 import ApiActions from './components/ApiActions.vue'
 import Faker from './components/Faker'
-import OpenCrud from './components/OpenCrud.vue'
+import OpenCrud from './components/OpenCrud'
 
 const routes = [
   { path: '/', component: Main },

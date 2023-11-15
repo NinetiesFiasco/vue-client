@@ -1,10 +1,5 @@
-const PORT = 3500
-const API_URL = `http://localhost:${PORT}/api`
+import main from './main'
+import test from './test'
+import crud from './crud'
 
-const apiCall = async (url) => {
-  const response = await fetch(`${API_URL}/${url}`)
-  const obj = await response.json()
-  return obj
-}
-
-export default apiCall
+export default {main, test, crud}
