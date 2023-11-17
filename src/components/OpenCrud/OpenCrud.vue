@@ -6,6 +6,8 @@
     </div>
     <Create />
     <Read />
+    <Update />
+    <Delete />
   </div>
 </template>
 
@@ -13,11 +15,13 @@
 import {mapState, mapActions} from 'vuex'
 import Create from './Create.vue'
 import Read from './Read.vue'
+import Update from './Update.vue'
+import Delete from './Delete.vue'
 
 export default {
   name: 'OpenCrud',
   components: {
-    Create, Read
+    Create, Read, Update, Delete
   },
   computed: {
     ...mapState({

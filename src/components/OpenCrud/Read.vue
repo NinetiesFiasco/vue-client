@@ -2,13 +2,15 @@
   <div>
     <div v-for="(client, key) of clients" :key="key">
       <pre>{{ client }}</pre>
+      <button @click="setIdToDelete(client._id)">delete</button>
+      <button @click="setIdToEdit(client._id)">update</button>
     </div>
     <button @click="read">Read</button>
   </div>
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState, mapMutations, mapActions} from 'vuex'
 
 export default {
   name: 'ReadClient',
@@ -21,6 +23,10 @@ export default {
     })
   },
   methods: {
+    ...mapMutations({
+      setIdToDelete: 'openCrud/setIdToDelete',
+      setIdToEdit: 'openCrud/setIdToEdit'
+    }),
     ...mapActions({
       read: 'openCrud/read'
     })

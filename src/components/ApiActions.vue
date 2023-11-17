@@ -87,28 +87,22 @@ export default {
   },
   methods: {
     async callExpressOne() {
-      const data = await api.main.initial()
-      this.answers.express1.initial = data.res
+      this.answers.express1.initial = await api.main.initial()      
     },
     async callExpressOneAxios() {
-      const data = await api.main.axios()
-      this.answers.express1.axios = data.res
+      this.answers.express1.axios = await api.main.axios()
     },
     async callExpressOneRabbit() {
-      const data = await api.main.rabbit()
-      this.answers.express1.rabbit = data.res
+      this.answers.express1.rabbit = await api.main.rabbit()
     },
     async callExpressOneMongo() {
-      const data = await api.main.mongo()
-      this.answers.express1.mongo = data.res
+      this.answers.express1.mongo = await api.main.mongo()
     },
     async callExpressOneMail() {
-      const data = await api.main.mail()
-      this.answers.express1.mail = data.res
+      this.answers.express1.mail = await api.main.mail()
     },
     async callExpressTwo() {
-      const data = await api.test.initial()
-      this.answers.express2 = data.res
+      this.answers.express2 = await api.test.initial()
     }
   }
 }
